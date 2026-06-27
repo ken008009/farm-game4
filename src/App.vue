@@ -1,9 +1,9 @@
 <template>
   <div id="app">
     <GlobalLoading />
-    <RouterView v-slot="{ Component, route }">
+    <RouterView v-slot="{ Component }">
       <keep-alive include="Home,Game,Game2">
-        <component :is="Component" :key="route.fullPath" />
+        <component :is="Component" />
       </keep-alive>
     </RouterView>
   </div>

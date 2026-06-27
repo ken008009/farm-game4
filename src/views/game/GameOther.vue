@@ -15,6 +15,7 @@
       <div class="land-position">
         <div v-for="(land, index) in landList" :key="index" class="land-plot" :style="getPlotStyle(index)">
           <Land :closeOption="closeMenuAction" :action="landAction" :land-info="land" :curr-addr="currAddr" :location="index + 1"
+            :can-play-six="userInfo.canPlaySix"
             @success="landActionHandler" @close="closeOtherMenuHandler" />
         </div>
       </div>
@@ -49,7 +50,7 @@
 
 <script setup>
 import { useRouter, useRoute } from 'vue-router';  // 引入 useRouter
-import { ref, reactive, computed, useTemplateRef, onMounted, onUnmounted, onDeactivated, onActivated } from 'vue';
+import { ref, reactive, computed, useTemplateRef, onMounted, onUnmounted, onDeactivated, onActivated, watch } from 'vue';
 import { calculateFileSHA1, formatTime, formatBytes } from '@/utils/util';
 import { fetchSign, checkAccount } from '@/tools/fetchSign';
 import { getToken, getAddr, getSign } from '@/utils/auth';
@@ -75,7 +76,6 @@ import PopGoodsSelect from '@/views/game/pop/PopGoodsSelect.vue';
 import PopLandCutivated from '@/views/game/pop/PopLandCutivated.vue';
 
 import { getCurrentInstance } from 'vue';
-import { defineOptions } from 'vue';
 defineOptions({
   name: 'Game2'
 });
@@ -201,6 +201,16 @@ onActivated(() => {
   currAddr.value = route.query.address || ''
   checkLogin()
 })
+watch(
+  () => route.query.address,
+  (address) => {
+    const nextAddr = address || ''
+    if (nextAddr !== currAddr.value) {
+      currAddr.value = nextAddr
+      checkLogin()
+    }
+  }
+)
 onDeactivated(() => {
   console.log('closepage')
   stopTimer()  
