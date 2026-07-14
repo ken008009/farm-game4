@@ -1,7 +1,8 @@
 <template>
   <div class="bg-pop">
     <div class="cont-pop" @click="notDo()" v-show="step == 1">
-      <img class="bg" :src="$t('image_game.bg_store')" alt="">
+      <div class="login-panel login-panel--w330 login-panel--h560" aria-hidden="true"></div>
+      <span class="pop-title">{{ $t('menu_label_store') }}</span>
       <div class="cont-tab">
         <div class="line"></div>
         <div class="list-tab">
@@ -121,7 +122,8 @@
       <img class="icon-close" src="@/assets/images/game/icon_close.png" @click="closeHandler()" alt="">
     </div>
     <div class="cont-detail" @click="notDo()" v-show="step == 2">
-      <img class="bg" :src="$t('image_game.bg_store2')" alt="">
+      <div class="login-panel login-panel--w300 login-panel--h520" aria-hidden="true"></div>
+      <span class="pop-title">{{ $t('menu_label_store') }}</span>
       <div class="store-detail">
         <div class="cont-rule">
           <img class="icon-rule" src="@/assets/images/game/icon_rule.png" alt="">
@@ -407,10 +409,6 @@ async function offGoods() {
 
   .cont-pop {
     position: relative;
-
-    .bg {
-      width: 330px;
-    }
 
     .icon-close {
       width: 30px;
@@ -761,10 +759,6 @@ async function offGoods() {
 
   .cont-detail {
     position: relative;
-
-    .bg {
-      width: 300px;
-    }
 
     .icon-close {
       width: 30px;

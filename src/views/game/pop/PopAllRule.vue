@@ -1,9 +1,9 @@
 <template>
   <div class="bg-pop" @click="notDo()">
     <div class="cont-pop" @click="notDo()">
-      <img class="bg" src="@/assets/images/game/bg_common.png" alt="">
+      <div class="login-panel login-panel--w320 login-panel--h600" aria-hidden="true"></div>
+      <span class="pop-title">{{ $t('rule') }}</span>
       <div class="cont-info">
-        <div class="title">{{ $t('rule') }}</div>
         <div class="detail" @touchmove.stop @click.stop>{{ $t('all_rule') }}</div>
         <!-- <div class="cont-bottom">
           <span class="prev" @click="skipPage(-1)">{{ $t('prev') }}</span>
@@ -87,11 +87,6 @@ function notDo() { }
   .cont-pop {
     position: relative;
 
-    .bg {
-      width: 320px;
-      height: 600px;
-    }
-
     .icon-close {
       width: 30px;
       height: 30px;
@@ -114,11 +109,6 @@ function notDo() { }
       display: flex;
       flex-direction: column;
       align-items: center;
-
-      .title {
-        font-size: 24px;
-        font-weight: bold;
-      }
 
       .detail {
         padding: 30px;
@@ -292,11 +282,6 @@ function notDo() { }
   .cont-staking {
     position: relative;
 
-    .bg {
-      width: 320px;
-      height: 320px;
-    }
-
     .icon-close {
       width: 30px;
       height: 30px;
@@ -378,10 +363,6 @@ function notDo() { }
 
   .cont-result {
     position: relative;
-
-    .bg {
-      width: 320px;
-    }
 
     .icon-close {
       width: 30px;

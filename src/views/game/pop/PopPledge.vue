@@ -1,7 +1,8 @@
 <template>
   <div class="bg-pop" @click="notDo()">
     <div class="cont-pop" @click="notDo()" v-if="step == 1">
-      <img class="bg" src="@/assets/images/game/bg_common.png" alt="">
+      <div class="login-panel login-panel--w320 login-panel--h600" aria-hidden="true"></div>
+      <span class="pop-title">{{ $t('subscribe') }}</span>
       <div class="cont-info" v-if="true">
         <span class="btn-buy" v-if="menuInfo.one <= 0" @click="toBuyHandler()">{{ $t('to_buy') }}</span>
         <span class="btn-hide" v-else></span>
@@ -56,7 +57,7 @@
       <img class="icon-close" src="@/assets/images/game/icon_close.png" @click="closeHandler()" alt="">
     </div>
     <div class="cont-staking" @click="notDo()" v-if="step == 2">
-      <img class="bg" src="@/assets/images/game/bg_common.png" alt="">
+      <div class="login-panel login-panel--w320 login-panel--h400" aria-hidden="true"></div>
       <div class="cont-info">
         <div class="list-buy">
           <div class="item-buy" v-for="(item, index) in listBuy">
@@ -69,7 +70,7 @@
       <img class="icon-close" src="@/assets/images/game/icon_close.png" @click="showHomeHandler()" alt="">
     </div>
     <div class="cont-sub" @click="notDo()" v-if="step == 3">
-      <img class="bg" src="@/assets/images/game/bg_common.png" alt="">
+      <div class="login-panel login-panel--w320 login-panel--h280" aria-hidden="true"></div>
       <div class="cont-info">
         <div class="list-buy">
           <div class="item-buy">
@@ -87,7 +88,7 @@
       <img class="icon-close" src="@/assets/images/game/icon_close.png" @click="showHomeHandler()" alt="">
     </div>
     <div class="cont-detail" @click="notDo()" v-if="step == 4">
-      <img class="bg" src="@/assets/images/game/bg_common.png" alt="">
+      <div class="login-panel login-panel--w320 login-panel--h600" aria-hidden="true"></div>
       <div class="cont-info">
         <div class="cont-tab">
           <span class="item-tab" :class="[currTab == 1 ? 'select-tab' : '']" @click="switchTabHandler(1)">{{ $t('subscribe') }}</span>
@@ -284,11 +285,6 @@ async function buy(amount) {
   .cont-pop {
     position: relative;
 
-    .bg {
-      width: 320px;
-      height: 600px;
-    }
-
     .icon-close {
       width: 30px;
       height: 30px;
@@ -408,11 +404,6 @@ async function buy(amount) {
   .cont-staking {
     position: relative;
 
-    .bg {
-      width: 320px;
-      height: 400px;
-    }
-
     .icon-close {
       width: 30px;
       height: 30px;
@@ -469,11 +460,6 @@ async function buy(amount) {
 
   .cont-sub {
     position: relative;
-
-    .bg {
-      width: 320px;
-      height: 280px;
-    }
 
     .icon-close {
       width: 30px;
@@ -539,11 +525,6 @@ async function buy(amount) {
 
   .cont-detail {
     position: relative;
-
-    .bg {
-      width: 320px;
-      height: 600px;
-    }
 
     .icon-close {
       width: 30px;
